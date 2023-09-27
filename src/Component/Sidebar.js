@@ -2,32 +2,34 @@ import { Component } from "react";
 import Display from "./Display";
 
 
-class Sidebar extends Component{
-    constructor(props){
+class Sidebar extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            selected:"home"
+        this.state = {
+            selected: "home"
         }
     }
-    settingState(a){
-        this.setState({selected:a})
+    settingState(a) {
+        this.setState({ selected: a })
     }
-    render(){
+    render() {
 
-            return (
+        return (
                 <>
-                <div class="sidebar">
-                <button onClick={()=>{this.settingState("home")}} >Home</button>:
-                <button onClick={()=>{this.settingState("about")}} >About</button>:
-                <button onClick={()=>{this.settingState("help")}} >Help</button>:
-                <button onClick={()=>{this.settingState("contactUs")}} >Contact Us</button>:
+                <div id="sidebar" class="sidebar col-4">
+                    <button onClick={() => { this.settingState("about") }} >About</button>
+                    <button onClick={() => { this.settingState("home") }} >Home</button>
+                    <button onClick={() => { this.settingState("help") }} >Help</button>
+                    <button onClick={() => { this.settingState("contactUs") }} >Contact Us</button>
                 </div>
-                
-                <Display selected={this.state.selected} />
+                <div id="displayContent" class="col-8">
+
+                    <Display selected={this.state.selected} />
+                </div>
                 </>
-        );
+                    );
            
         
     }
 }
-export default Sidebar;
+                    export default Sidebar;
